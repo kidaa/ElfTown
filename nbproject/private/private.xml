@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alex/Dropbox/Programming/Java/ElfTown/src/elftown/ElfTown.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Simulation/Terrain.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Simulation/Simulation.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Simulation/RandomGenerator.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Controller/Mouse.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Simulation/Faction.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Simulation/Agent.java</file>
+            <file>file:/C:/Users/Alex/Dropbox/Github/ElfTown/src/Display/StatPanel.java</file>
         </group>
     </open-files>
 </project-private>

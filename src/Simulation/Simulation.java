@@ -6,12 +6,12 @@ import java.util.*;
  * @author Alex Mulkerrin
  */
 public class Simulation {
-    Random random;
-    public int seed;
     public EventLog log;
     public String name;
+    
     public Terrain map;
     public ArrayList<Agent> unit;
+    public RandomGenerator random;
     
     
     
@@ -20,11 +20,9 @@ public class Simulation {
     public int maxScore;
     public int mana;
     
-    public Simulation(int width, int height, int startingFactions, int seeded) {
+    public Simulation(int width, int height, int startingAgents, int seeded) {
         
-        seed=seeded;
-        random = new Random();
-        random.setSeed(seed);
+        random = new RandomGenerator(seeded);
         name = randomWorldName();
         
         score=new int[501];
@@ -40,11 +38,11 @@ public class Simulation {
         map.generateWorld();
         
         unit = new ArrayList<>();
-        for (int i=0; i<startingFactions; i++) {
+        for (int i=0; i<startingAgents; i++) {
             Agent toAdd=null;
             while (toAdd==null) {
-                int x =random.nextInt(map.getWidth());
-                int y =random.nextInt(map.getHeight());
+                int x =random.integer(map.getWidth());
+                int y =random.integer(map.getHeight());
                 toAdd = map.createOccupier(x,y);
                 
                 
@@ -122,35 +120,15 @@ public class Simulation {
             return 0;
         }
     }
-    
-    
-    
+
     private String randomWorldName() {
-        char[] vowels = new char[]{'a','e','i','o','u'};
-        char[] consonants = new char[]{'p','t','k','m','n'};
         String text="", result="";
-        int numWords = random.nextInt(3)+1;
+        int wordLength;
+        int numWords = random.integer(3)+1;
         for (int i=0; i<numWords; i++) {
-            text="";
-            int wordLength= random.nextInt(4)+4;
-            int letterType = random.nextInt(2);
-            for (int j=0; j<wordLength; j++) {
-                if (letterType==0) {
-                    text += randomChoice(consonants);
-                    letterType++;
-                } else {
-                    text += randomChoice(vowels);
-                    letterType=0;
-                }
-                if (j==0) text = text.toUpperCase();
-            }
-            result += text+" ";
+            wordLength = random.integer(4)+4;
+            result += random.name(wordLength);
         }
         return result;
-    }
-    
-    public char randomChoice(char[] choices) {
-        int pick = random.nextInt(choices.length);
-        return choices[pick];
     }
 }

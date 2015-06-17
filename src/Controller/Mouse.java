@@ -145,7 +145,7 @@ public class Mouse extends MouseAdapter {
     
     public void commandToSettle() {
         if (selectedAgent!=null && targetSim.mana>0 && selectedAgent.isNomadic) {
-            selectedAgent.settle();
+            //selectedAgent.settle();
             targetSim.mana--;
             targetDisplay.repaint();
         }

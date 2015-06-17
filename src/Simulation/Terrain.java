@@ -72,7 +72,7 @@ public class Terrain {
     
     public void generateWorld() {
         clearMap();
-        Boolean challenge = sim.random.nextBoolean();
+        Boolean challenge = sim.random.bool();
         if (challenge){
             mapTempTendency=-1;
         } else {
@@ -100,15 +100,15 @@ public class Terrain {
         
         while (totalLand<desiredLand) {
             stencil = new int[width][height];
-            int sx = sim.random.nextInt(width-2*border)+border;
-            int sy = sim.random.nextInt(height-2*border)+border;
-            int length = sim.random.nextInt(63)+1;
+            int sx = sim.random.integer(width-2*border)+border;
+            int sy = sim.random.integer(height-2*border)+border;
+            int length = sim.random.integer(63)+1;
             Boolean insideBorder = true;
             while (length>0 && insideBorder) {
                 for (int e=0; e<stamp.length; e++) {
                     stencil[sx+stamp[e][0]][sy+stamp[e][1]]=1;
                 }
-                int choice = sim.random.nextInt(choices.length);
+                int choice = sim.random.integer(choices.length);
                 sx += choices[choice][0];
                 sy += choices[choice][1];
                 length--;
